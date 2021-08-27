@@ -1,4 +1,3 @@
 function func_update
-    cd ~/.config/fish/functions
-    git pull
+    env -C ~/.config/fish/functions git pull > /dev/null &
 end
