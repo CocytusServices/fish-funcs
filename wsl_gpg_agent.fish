@@ -6,7 +6,7 @@ function wsl_gpg_agent -d "Set GPG agent to GPG4Win agent"
     rm -f $GPG_AGENT_SOCK
     rm -f $HOME/.gnupg/tmp-gpg-agent
     cp $GPG_AGENT_WIN $HOME/.gnupg/tmp-gpg-agent
-    socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$HOME/.config/fish/functions/npiperelay.exe -v -ep -ei -s -a $HOME/.gnupg/tmp-gpg-agent",nofork &
+    socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$HOME/.config/fish/functions/npiperelay.exe -v -ep -ei -s -a $HOME/.gnupg/tmp-gpg-agent",nofork &> /dev/null &
     disown
   end
 end
